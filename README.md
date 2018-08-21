@@ -10,7 +10,7 @@ Install `bibtex language`.
 
 
 ## Searching Papers
-- [Astrophysical Data System](https://ui.adsabs.harvard.edu/#/)
+- [Astrophysical Data System](http://adsabs.harvard.edu/abstract_service.html)
 - [arxiv](https://arxiv.org/)
 
 ## Useful References
