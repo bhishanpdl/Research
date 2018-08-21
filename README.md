@@ -7,3 +7,13 @@ Using bib files from zotero may fail. For example for Planck 2016 paper it fails
 
 ## To view bib files highlighted in vscode
 Install `bibtex language`.
+
+
+## Searching Papers
+- [Astrophysical Data System](https://ui.adsabs.harvard.edu/#/)
+- [arxiv](https://arxiv.org/)
+
+## Useful References
+- [Nersc](https://my.nersc.gov/index.php)
+- [astrobites](https://astrobites.org/category/daily-paper-summaries/)
+- [benty-fields](https://www.benty-fields.com/)
