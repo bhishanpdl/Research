@@ -28,4 +28,4 @@ Install `bibtex language`.
 ## Collection of Useful Websites
 - [gapminder](https://www.gapminder.org/) (For great visualization.)
 - [pudding/cool](https://pudding.cool/) (For interactive news articles.)
- + [search of person after death] (https://pudding.cool/2018/08/wiki-death/)
+    + [search of person after death] (https://pudding.cool/2018/08/wiki-death/)
