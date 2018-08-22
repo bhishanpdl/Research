@@ -10,7 +10,7 @@ Install `bibtex language`.
 
 
 ## Searching Papers
-- [Astrophysical Data System](http://adsabs.harvard.edu/abstract_service.html) (This can search paid paper in MNRAS etc. for free arxiv pdf docuemnts.
+- [Astrophysical Data System ADS](http://adsabs.harvard.edu/abstract_service.html) (This can search paid paper in MNRAS etc. for free arxiv pdf docuemnts.
 - [arxiv](https://arxiv.org/)
 
 
