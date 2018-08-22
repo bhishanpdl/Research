@@ -10,10 +10,16 @@ Install `bibtex language`.
 
 
 ## Searching Papers
-- [Astrophysical Data System](http://adsabs.harvard.edu/abstract_service.html)
+- [Astrophysical Data System](http://adsabs.harvard.edu/abstract_service.html) (This can search paid paper in MNRAS etc. for free arxiv pdf docuemnts.
 - [arxiv](https://arxiv.org/)
+
 
 ## Useful References
 - [Nersc](https://my.nersc.gov/index.php)
 - [astrobites](https://astrobites.org/category/daily-paper-summaries/)
 - [benty-fields](https://www.benty-fields.com/)
+
+
+## Organizing Meetings
+- [whenisgood](http://whenisgood.net/;jsessionid=B140B9C77465138E828AF22FD269DF09)
+- [doodle](https://doodle.com)
