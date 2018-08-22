@@ -29,3 +29,4 @@ Install `bibtex language`.
 - [gapminder](https://www.gapminder.org/) (For great visualization.)
 - [pudding/cool](https://pudding.cool/) (For interactive news articles.)
     + [search of person after death] (https://pudding.cool/2018/08/wiki-death/)
+- [slant](https://www.slant.co/topics/7247/~code-snippets-manager)(Compare Things.)
