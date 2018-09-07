@@ -1,3 +1,13 @@
+- [Research](#research)
+  * [For citation](#for-citation)
+  * [To view bib files highlighted in vscode](#to-view-bib-files-highlighted-in-vscode)
+  * [Searching Papers](#searching-papers)
+    + [Physical Review Journal D](#physical-review-journal-d)
+  * [Useful References](#useful-references)
+  * [Organizing Meetings](#organizing-meetings)
+  * [Deleting overleaf project](#deleting-overleaf-project)
+  * [Collection of Useful Websites](#collection-of-useful-websites)
+
 # Research
 
 ## For citation
@@ -32,6 +42,9 @@ Go to [that link](https://journals.aps.org/prd/issues/70/4) and search lima.
 - [whenisgood](http://whenisgood.net/;jsessionid=B140B9C77465138E828AF22FD269DF09)
 - [doodle](https://doodle.com)
 
+## Deleting overleaf project
+1. For version 1 (v1) go to [v1 dashboard](https://www.overleaf.com/dash?prefer-v1-dash=1) and delete it.
+2. For version 2, first move to ARCHIVE, then go to archives and delete it.
 
 ## Collection of Useful Websites
 - [gapminder](https://www.gapminder.org/) (For great visualization.)
