@@ -13,6 +13,14 @@ Install `bibtex language`.
 - [Astrophysical Data System ADS](http://adsabs.harvard.edu/abstract_service.html) (This can search paid paper in MNRAS etc. for free arxiv pdf docuemnts.
 - [arxiv](https://arxiv.org/)
 
+### Physical Review Journal D
+Example:
+```
+lima, m. & hu, w. 2004, phys. rev. d, 70, 043504
+```
+Google will give some link to the Physical Review Journal D, volume 70 issue 4.
+Go to [that link](https://journals.aps.org/prd/issues/70/4) and search lima.
+
 
 ## Useful References
 - [Nersc](https://my.nersc.gov/index.php)
