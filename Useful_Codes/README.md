@@ -4,7 +4,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-def plot_polynomial(x,y,degree, *args):
+def plot_poly(x,y,degree, *args):
+    """ Plot the data with given degree of polynomial.
+    
+    Example:
+    plot_poly(x,y,3)
+    plot_poly(x,y,3,'x','y','title')
+    
+    Returns: p
+    
+    Usage:
+    x_value = 100
+    p(x_value) gives the polynomial fit of x_value
+    
+    """
     plt.figure(figsize=(12,8))
     plt.title('')
     plt.plot(x, y,'b.')
@@ -27,6 +40,7 @@ def plot_polynomial(x,y,degree, *args):
     if len(args) > 2: plt.title(args[2])
     plt.legend()
     
+    return p
 x = np.arange(10)
 y = x**2 + 2*x - 3
 
