@@ -45,6 +45,7 @@ Go to [that link](https://journals.aps.org/prd/issues/70/4) and search lima.
 2. For version 2, first move to ARCHIVE, then go to archives and delete it.
 
 # Collection of Useful Websites
+- [detexify draw alpha and get name](http://detexify.kirelabs.org/classify.html)
 - [gapminder](https://www.gapminder.org/) (For great visualization.)
 - [pudding/cool](https://pudding.cool/) (For interactive news articles.)
     + [search of person after death] (https://pudding.cool/2018/08/wiki-death/)
