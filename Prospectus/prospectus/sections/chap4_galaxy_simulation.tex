@@ -1,0 +1,148 @@
+% Author: Bhishan Poudel
+% Date  : Jan 17, 2018
+% Update:
+%
+%
+%#*******************************************************
+%#=======================================================
+%#  Chapter 4: Galaxy Simulation
+%#=======================================================
+%#*******************************************************
+%
+%
+\section{Chapter 4: Galaxy Simulation With Jedisim}\label{sec:chap4}
+We want to create the realistic simulation of the LSST observation from the existing data from the
+HST data. From chapter 2 we have created the bulge and disk component of the HST ACS Wide Filed Camera observations
+of certain patch of the sky. 
+
+\subsection{Creation of Scaled Bulge, Disk, and Monochromatic Images}
+We have total 201 number of HST images, so we have 201 bulge images and 201 disk images.
+From these two folders we create so called scaled\_bulge, scaled\_disk, and scaled\_bulge\_disk folders. For this,
+we first find the bulge\_factor (bf) and disk\_factor (df) then we create scaled galaxies.
+
+ \begin{eqnarray}
+ scaled\_bulge = bf * bulge.fits \\
+ scaled\_disk = df * disk.fits
+ \end{eqnarray}
+ 
+ 
+
+To find bulge and disk factors, first we find fraction for bulge ratio and fraction of disk ratio as follows:
+
+ \begin{eqnarray}
+ f_{ratb} = \frac{\int_{\lambda0}^{\lambda20} f_{bz}(\lambda)d\lambda}
+ {\int_{\lambda{hst0}}^{\lambda_{hst20}} f_{bzcut}(\lambda)d\lambda} \\
+ f_{ratd} = \frac{\int_{\lambda0}^{\lambda20} f_{dz}(\lambda)d\lambda}
+ {\int_{\lambda{hst0}}^{\lambda_{hst20}} f_{dzcut}(\lambda)d\lambda}
+ \end{eqnarray}
+Here, $f_{bz}$ is the flux column from the SED file according the redshift $z$ for the bulge and $f_{bzcut}$ is the 
+flux column for cutout galaxy. Here, we have used the galaxy cutout redshift as $ z_{cutout} = 0.2$. Similarly we have the flux columns for disk galaxies.
+
+The wavelengths $\lambda_0$ and $\lambda_{20}$ are the LSST R-band filter blue and red wavelengths. This range is $5520 \AA$ to $6910 \AA$ (Refer to: $https://www.lsst.org/about/camera/features$).
+We divide these wavelengths by a factor ($1 + z$) to get the range 2208 to 2764 for the redshift of 1.5.
+
+Similarly, for the HST the wavelengths are $\lambda_{hst0} = 7077.5 \AA$ and $\lambda_{hst0} = 9588.5 \AA$ after dividing by $ 1 + z = 1.2$ we get $\lambda_{hst0} = 5897.9 \AA$ and $\lambda_{hst0} = 7990.4 \AA$. We can get more details about HST ACS/WFC filter at the website $http://www.stsci.edu/hst/acs/documents/handbooks/current/c05_imaging2.html$.
+
+Then, we get bulge factor and disk factor using the formula:
+ \begin{eqnarray}
+ bf = \frac{F_b + F_d} {F_b * f_{ratb} + F_d * f_{ratd}} * f_{ratb} \\
+ bd = \frac{F_b + F_d} {F_b * f_{ratb} + F_d * f_{ratd}} * f_{ratd} \\
+ \end{eqnarray}
+ 
+ where, $F_b$ is the flux of a bulge file (e.g. $simdatabase/bulge_f8/f814w_bulge0.fits$) and $F_d$ is the flux of a disk file (e.g. $simdatabase/disk_f8/f814w_disk0.fits$) for 201 bulge and disk files we have 201 bulge and disk factors.
+ 
+After we get these bulge and disk factors we simply multiply them by the bulge.fits and disk.fits to get scaled\_bulge.fits and scaled\_disk.fits.
+
+\subsection{PSF Creation for Bulge, Disk, and Monochromatic Images}
+From the PHOSIM Software we have created 21 narrowband PSFs. Now we will use them to create PSF for scaled bulge, disk, and monochromatic images. The scaled psf files are given by formula:
+\begin{eqnarray}
+p_b = \frac{b0*p0 + b1*p1 + ... + b20*p20}{b0 + b1 + ... + b20} \\
+p_d = \frac{d0*p0 + d1*p1 + ... + d20*p20}{d0 + d1 + ... + d20} \\
+p_m = f_{rd} \ p_d + f_{rb} \ p_b
+\end{eqnarray}
+Here, $p_b$, $p_d$,and $p_m$ are psf for bulge, disk, and monochromatic respectively. Also the quantities $b0, b1, ..., b20$ and $d0, d1, ..., d20$ are bulge and disk weights for 21 narrowbands. These quantities are the integrated flux in the given narrowbands. For example, for LSST R band filter the blue and red wavelength range is 2208 to 2764 Angstrom. We divide this range into 21 parts and integrate the flux in that range to get the bulge and disk factor for that range using SED file for bulge and disk.
+
+\subsection{Jedisim Simulations}
+Jedisim is a computer simulator that simulates realistic LSST images from HST images using various physics parameters.
+It was initially developed by Dr. Ian Dell'Antonio of Brown University (2014) and after that heavily expanded and maintained by Bhishan Poudel of Ohio University (2014-2018) with the help of Dr. Doug Clowe. 
+This program takes in scaled bulge and scaled disk galaxies and finally will create chromatic and monochromatic lsst images. It will also create 90 degree rotated images for the chromatic and monochromatic lsst images.
+The \textbf{Jedisim} program itself consist of various sub programs, which I will describe briefly below.
+
+\subsubsection{Create the Catalogs for Jedisim}
+We use the subprogram \textbf{jedicatalog} to create the three catalog files need by Jedisim. The files are \textbf{catalog.txt}, \textbf{convolvedlist.txt}, and \textbf{distortedlist.txt}. The \textbf{catalog.txt} file contains various important quantities of a galaxy. Each row of catalog.txt file contains following parameters: galaxy\_name, center\_x, center\_y, angle, redshift, pixscale, old\_magnitude, old\_radius, new\_magnitude, new\_radius, stamp\_name, distorted\_file\_name. We will need these parameters to transform the galaxies.
+
+In the jedicatalog program we specify a galaxy by six parameters magnitude, radius, image, redshift,position, and angle.
+
+\begin{description}
+\item[Magnitude]
+In this simulation we have chosen the simulated galaxies magnitudes within range $22 \le M \le 28$. The galaxies are distributed with the power law,
+\begin{equation}
+  P(M+dM) \propto 10^{BM}
+  \label{eq:mag_power_law}
+\end{equation}
+    where $M$ is the magnitude and $B = 0.33\ln 10$ is an empirical constant (refer to \cite{benitez_04}). The magnitude zero-point is taken to be 30 throughout the simulations by convention
+
+\item[Radius] The simulated galaxies have the magnitudes between 22 and 28. For each magnitudes, we have a radius database for r50 radii. We choose a radius randomly from that radius bin for the given magnitude.
+
+\item[Image] The postage stamp image is chosen randomly from the list of r50 radii such that the chosen r50 radius
+is larger than the radius of original galaxy. This makes 
+sure that images are always sized down and no information is artificially created by scaling.
+
+\item[Redshift] In this simulation we have chosen the fixed redshift of 1.5. However, we can choose random redshifts for each magnitude bin from magnitude 22 to 28 is we opt to vary the redshifts of galaxies. The redshift database was obtained from ZCOSMOS database.
+
+\item[Position] The position of center of the postage stamps are chosen randomly 
+from the range [301,40,660] . This range is taken to ensure that all 600 by 600
+postage stamps lie completely within the range [0,40,960]. In later simulation step, we will trim the border by 480 pixels so as to ensure uniform distribution
+of galaxies with typical edge effects.
+
+\item[Angle] We chose the angle of orientation of a galaxy randomly between 0 to 360 degrees. We should note that the orientation of galaxies has three degree of
+freedom, but since we are dealing with 2D projections of galaxies, we can only make the orientation random in one degree of freedom.
+
+\end{description}
+The \textbf{convolvedlist.txt} contains the names of files to be written after we convolve a galaxy with a psf. A typical row of
+convolvedlist appears like this $jedisim\_out/out0/convolved/convolved\_band\_0.fits$. When we convolve a large fitsfile with a psf, due to the memory restrictions of computer instead of creating single large convolved file we create 6 convolved bands and later combine them into a single large convolved galaxy.
+
+The \textbf{distortedlist.txt} contains the names of the galaxies that will be after we distort them using Singular Isothermal Profile Lens. A typical row of convolvedlist appears like this $jedisim\_out/out0/distorted\_0/distorted\_0.fits$. There are 12,420 rows and the last row is $jedisim\_out/out0/distorted\_0/distorted\_12419.fits$.
+
+The program \textbf{jedicatalog} will create
+
+\subsubsection{Transform the Galaxies}
+We transform the scaled bulge, scaled disk, and scaled bulge\_disk files using \textbf{jeditransform}. This sub routine reads in the catalog file and various transforming physics parameters from that file and then transforms the galaxies. This program reads 201 bulge (or disk) galaxies and create 12,420 HST stamps.
+
+\subsubsection{Distort the Galaxies}
+Here, we use the Singular Isothermal Sphere (SIS) profile to 
+lens the galaxies. We have chosen fixed position of the lens
+to be (6144,6144) and taken dispersion velocity $\sigma_v = 1000 km/s$. In the singular isothermal profile the density is 
+calculated as
+\begin{equation}
+\rho(r,\sigma_v) = \frac{\sigma_v^2}{2\pi Gr^2}
+\end{equation}
+where, G is the gravitational constant and r is radius in pixels. Since the total mass inside radius r diverges as r reaches to infinity, the SIS model is non-physical. However, when the profile is finitely bounded, it constitutes a possible physical distribution and can be used as a lens.
+
+We may also use the Navarro-Frenk-White (NFW) profile which does
+not suffer from the divergence problem. The NFW profile is 
+given by:
+\begin{equation}
+\rho(r,\rho_0,R_s) = \frac{\rho_0}{\frac{r}{R_s} (1 + \frac{r}{R_s})^2}
+\end{equation}
+where, $\rho_0, and\ R_s$ are the parameters dependent on the halo we use.
+
+\subsubsection{Convolve the Galaxies with the PSF}
+After we distort the galaxies, we convolve the big HST image with the PSF. For the bulge components we convolve the big HST galaxy with scaled bulge psf and for the disk components we convolve the big HST image with scaled disk psf.
+
+\subsubsection{Rescale the Galaxies from HST to LSST}
+Until now, we have been dealing with the HST images and HST psf images. Now, we scale down the pixels of HST to LSST using a routine \textbf{jedirescale}. After rescaling we go to the PIXSCALE 0.2 of LSST from the PIXSCALE of 0.06 of HST.
+
+For bulge components, the output of jedirescale gives us lsst\_bulge file and similarly disk components gives us lsst\_disk fits files. Also, for the bulge\_disk files we get lsst\_monochromatic unnoised file.
+
+\subsubsection{Create Monochromatic LSST Image}
+From the \textbf{jedirescale} program if we feed the bulge\_disk images as the input fits-files, we will get the lsst\_bulge\_disk fits-file as the output. We add the Poisson noise of mean noise 10 pixels to get the LSST monochromatic image.
+This is one of the main output of the \textbf{Jedisim} program.
+
+\subsubsection{Create Chromatic LSST Image}
+From the \textbf{jedirescale} program we get lsst\_bulge and lsst\_disk images. We combine them and add the Poisson noise of mean noise 10 pixels to get the LSST chromatic image.
+This is one of the main output of the \textbf{Jedisim} program.
+
+\subsection{Rotated galaxies output from Jedisim}
+If we run the \textbf{Jedisim} program for the normal case we will get two main outputs, namely, lsst.fits and lsst\_mono.fits. But, the galaxies are randomly orientated in the 
+universe and we may also want the 90 degree rotated versions of the galaxies. For, this purpose, the program Jedisim, will also gives us 90 degree rotated versions of the output files named as lsst90.fits and lsst\_mono90.fits. So, in the end of one run of Jedisim we will get four important output files, two for non-rotated galaxies and two for rotated galaxies.

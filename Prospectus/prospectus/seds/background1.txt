@@ -1,0 +1,6 @@
+zenith_v 1000.0
+raydensity 0.0
+pixelsize 1.5
+saturation 0
+blooming 0
+chargesharing 0

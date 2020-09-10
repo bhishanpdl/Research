@@ -1,0 +1,327 @@
+\setlength{\parskip}{0pt}
+%\include{definition}
+%\include{defappendix}
+\def\prd{Phys. Rev. D}
+\def\apj{ApJ}
+\def\aap{A \& A}
+\def\mnras{MNRAS}
+\def\jcap{JCAP}
+\def\physrep{Phys. Rep.}
+\def\pasp{PASP}
+
+%%% Cosmology and related parameters
+\newcommand{\Om}{\Omega_m}
+\newcommand{\Ob}{\Omega_b}
+\newcommand{\LCDM}{\rm {\Lambda CDM}}
+\newcommand{\OL}{\Omega_\Lambda}
+\newcommand{\Ok}{\Omega_K}
+
+\newcommand{\nbar}{\bar{n}}
+
+\newcommand{\Oh}{\Omega_m h^2}
+\newcommand{\Obhh}{\Omega_b h^2}
+\newcommand{\w}{w}
+\newcommand{\Ox}{\Omega_X}
+
+%%% Distances
+\newcommand{\DA}{D\!_A(z)}
+%\newcommand{\DV}{D\!_V(z)}
+\newcommand{\hz}{H(z)}
+\newcommand{\DAA}{D_A\,}
+\newcommand{\hzz}{H\,}
+\newcommand{\Hz}{H\!_z\,}
+\newcommand{\sDA}{\sigma_\DA}
+\newcommand{\sHz}{\sigma_\hz}
+\newcommand{\DAcmb}{D_{A,\rm CMB}}
+\newcommand{\DArs}{D_A(z)/r_s}
+\newcommand{\DArsf}{[D_A(z)/r_{s}]_{\rm fid}}
+\newcommand{\Daf}{D_{A, \rm fid}(z)}
+\newcommand{\Dafo}{D_{A, \rm fid}}
+\newcommand{\DV}{D_V}
+\newcommand{\sDV}{\sigma_{D_V}}
+%%%  Units
+\newcommand{\hMpc}{h^{-1}{\rm\;Mpc}}
+\newcommand{\hGpc}{h^{-1}{\rm\;Gpc}}
+\newcommand{\trihGpc}{h^{-3}{\rm\;Gpc^3}}
+\newcommand{\trihMpc}{h^{-3}{\rm\;Mpc^{3}}}
+\newcommand{\itrihMpc}{h^{3}{\rm\;Mpc^{-3}}}
+\newcommand{\ihMpc}{h{\rm\;Mpc^{-1}}}
+\newcommand{\Mpc}{{\rm\;Mpc}}
+\newcommand{\Gpc}{{\rm\;Gpc}}
+\newcommand{\iMpc}{{\rm\;Mpc^{-1}}}
+
+
+%%% Fitting parameters
+\newcommand{\al}{\alpha}
+\newcommand{\alpe}{\alpha_\perp}
+\newcommand{\alpa}{\alpha_\parallel}
+\newcommand{\sial}{\sigma_\alpha}
+\newcommand{\sig}{\sigma}
+\newcommand{\sigal}{\sigma_\alpha}
+\newcommand{\Sigxy}{\Sigma_{\rm xy}}
+\newcommand{\Sigz}{\Sigma_{z}}
+\newcommand{\Sigxyo}{\Sigma_{\rm xy,0}}
+\newcommand{\Sigzo}{\Sigma_{z,0}}
+\newcommand{\Pdd}{P_{\rm dd}}
+\newcommand{\Psd}{P_{\rm sd}}
+\newcommand{\Pss}{P_{\rm ss}}
+\newcommand{\Sigm}{\Sigma_{m}}
+\newcommand{\Sigsm}{\Sigma_{\rm sm}}
+\newcommand{\Sigsmsm}{\Sigma^2_{\rm sm}}
+\newcommand{\Signl}{\Sigma_{\rm nl}}
+\newcommand{\Signleff}{\Sigma_{\rm nl,eff}}
+\newcommand{\sigz}{\sigma_{z}}
+\newcommand{\SigR}{\Sigma_{R}}
+\newcommand{\SigRo}{\Sigma_{R,0}}
+\newcommand{\Sfog}{\Sigma_{\rm fog}}
+\newcommand{\afit}[3]{#1^{+#2}_{-#3}}
+\newcommand{\rechi}{\chi^2/{\rm DOF}}
+
+%%% Power spectrum notations
+\newcommand{\Pm}{P_m}
+\newcommand{\Plin}{P_{\rm lin}}
+\newcommand{\Psm}{P_{\rm nw}}
+
+\newcommand{\Clobs}{C_{\rm obs}(\ell)}
+\newcommand{\Clmod}{C_{\rm m, z_i}(\ell)}
+\newcommand{\Clobi}[1]{C_{\rm obs,z_i}{#1}}
+\newcommand{\Clmoi}[1]{C_{\rm m,z_i}{#1}}
+
+
+%%% Density fields
+\newcommand{\rhoow}{\rho_{0,w}} %% pre-reconstructed density field in the presense of the wedge effect
+\newcommand{\rhorw}{\rho_{r,w}} %% reconstructed density field in the presense of the wedge effect
+\def\rhobar{{\bar \rho}}
+\newcommand{\hdelta}{\hat{\delta}}
+%%% r and k, Wave modes
+\newcommand{\kmax}{k_{\rm max}}
+\newcommand{\mumin}{\mu_{\rm min}}
+\newcommand{\kperp}{k_\perp}
+\newcommand{\kpar}{k_\parallel}
+\newcommand{\rperp}{r_\perp}
+\newcommand{\rpar}{r_\parallel}
+
+\newcommand{\lobs}{\ell_{\rm obs}}
+\newcommand{\lfid}{\ell_{\rm fid}}
+\newcommand{\lmax}{l_{\rm max}}
+\newcommand{\llan}{\left\langle}
+\newcommand{\rran}{\right\rangle}
+\newcommand{\kvec}{\vec{k}}
+
+%%% Fisher terms
+\newcommand{\nPt}{nP_{0.2}}
+\newcommand{\Pt}{P_{0.2}}
+\newcommand{\kt}{k_{0.2}}
+\newcommand{\vmC}{\mathb{C}}
+
+%%% Redshifts
+\newcommand{\zpm}{z_{p,i}}
+\def \zmid {z_{\rm i,mid}}
+
+%%% Galaxy samples
+
+\newcommand{\LRGs}{CMASS1}
+\newcommand{\LRGe}{CMASS2}
+\newcommand{\LRGn}{CMASS3}
+\newcommand{\LRGt}{CMASS4}
+
+
+%%% Equation/Figure shortcut
+\newcommand{\Ec}[1]{(\ref{eq:#1})}
+\newcommand{\eql}[1]{\label{eq:#1}}
+\newcommand{\fc}[1]{\ref{fig:#1}}
+\newcommand{\figl}[1]{\label{fig:#1}}
+
+
+%%% 21cm specific parameters
+\newcommand{\Df}{\Delta f}
+\newcommand{\kb}{k_B}
+\newcommand{\Tsky}{\bar{T}_{\rm sky}}
+\newcommand{\Ta}{\bar{T}_a}
+\newcommand{\Tsig}{\bar{T}_{\rm sig}}
+\newcommand{\tint}{t_{\rm int}}
+\newcommand{\Poh}{P_{\rm HI}}
+\newcommand{\OHI}{\Omega_{\rm HI}}
+\newcommand{\VR}{V_{R}}
+\newcommand{\Pshot}{P_{\rm shot}}
+\newcommand{\Nfeed}{N_{\rm feed}}
+\newcommand{\Nyear}{N_{\rm year}}
+\newcommand{\Asur}{A_{\rm survey}}
+\newcommand{\Lcyl}{L_{\rm cyl}}
+\newcommand{\Wcyl}{W_{\rm cyl}}
+\newcommand{\Apix}{A_{\rm pixel}}
+\newcommand{\knyq}{k_{\rm Nyq}}
+\newcommand{\hdel}{\hat{\delta}}
+\newcommand{\Vsur}{V_{\rm survey}}
+\newcommand{\Veff}{V_{\rm eff}}
+\newcommand{\fo}{f_{\rm 21cm}}
+
+%%% Abbreviations
+\newcommand{\ie}{i.e.}
+\newcommand{\Nb}{{\it N}-body}
+\newcommand{\Nbody}{$N$-body}
+
+%%% Journals
+%\input{journal}
+%\newcommand{\jcap}{Journal of Cosmology and Astroparticle Physics}
+%\def\apj{\ref@jnl{ApJ}}
+%\newcommand{\physlet}{Phys Lett}
+%\newcommand{\na}{New Astronomy}
+
+%%% 
+\def\lexp{\mathop{\langle}\nolimits}
+\def\rexp{\mathop{\rangle}\nolimits}
+%\def\del{\nabla}
+
+%%% LPT parameters
+\newcommand{\Zel}{Zel'dovich}
+%%%%%%%%%%%
+
+\newcommand{\vecq}{\vec{q}}
+\newcommand{\vecd}{\vec{d}}
+\newcommand{\vecs}{\vec{s}}
+\newcommand{\veck}{\vec{k}}
+\newcommand{\bx}{{\bf x}}
+\newcommand{\br}{{\bf r}}
+\newcommand{\bz}{{\bf z}}
+\newcommand{\bq}{{\bf q}}
+\newcommand{\bk}{{\bf k}}
+\newcommand{\bp}{{\bf p}}
+\newcommand{\dpc}{d^3p}
+\newcommand{\indp}{\int\frac{d^3p}{(2\pi)^3}}
+\newcommand{\tpic}{(2\pi)^3}
+\newcommand{\enia}[1]{e^{-i #1 }}
+\newcommand{\eia}[1]{e^{i #1 }}
+\newcommand{\enikq}{e^{-i\bk\cdot\bq}}
+\newcommand{\enikx}{e^{-i\bk\cdot\bx}}
+\newcommand{\enipq}{e^{-i\bp\cdot\bq}}
+\newcommand{\mupo}{\mu'}
+\newcommand{\mupt}{\mu'^{2}}
+\newcommand{\mupf}{\mu'^{4}}
+\newcommand{\mups}{\mu'^{6}}
+\newcommand{\erf}{{\rm erf}}
+\newcommand{\Mo}{M_0^{(x)}}
+\newcommand{\Mt}{M_2^{(x)}}
+\newcommand{\Mf}{M_4^{(x)}}
+\newcommand{\Ms}{M_6^{(x)}}
+\newcommand{\Mx}[1]{M_{#1}^{(x)}}
+\newcommand{\Mxh}[1]{M_{#1}^{(x/2)}}
+\newcommand{\Moh}{M_0^{(x/2)}}
+\newcommand{\Mth}{M_2^{(x/2)}}
+\newcommand{\Mfh}{M_4^{(x/2)}}
+\newcommand{\Msh}{M_6^{(x/2)}}
+\newcommand{\enikPsi}[1]{e^{-i\bk\cdot\bPsi(#1)}}
+\newcommand{\eniktPsi}[2]{e^{-i\bk\cdot[\bPsi(#1)-\bPsi(#2)]}}
+\newcommand{\dx}{\delta(\bx)}
+\newcommand{\dk}{\tilde{\delta}(\bk)}
+\newcommand{\dks}{\tilde{\delta_s}(\bk)}
+\newcommand{\dksm}{\tilde{\delta}_{\rm sm}(\bk)}
+\newcommand{\dkd}{\tilde{\delta_d}(\bk)}
+
+
+\newcommand{\bPsi}{{\bf \Psi}}
+\newcommand{\bs}{\bf s}
+\newcommand{\bPsin}[1]{{\bf \Psi^{#1}}}
+\newcommand{\tbPsin}[1]{\tilde{\bf \Psi}^{#1}}
+\newcommand{\tbs}{\tilde {\bf s}}
+\newcommand{\PL}{P_{\rm L}}
+\newcommand{\Pnl}{P_{\rm nl}}
+\newcommand{\Pmc}{P_{\rm MC}}
+\newcommand{\Pmct}{P_{\rm MC,0.2}}
+\newcommand{\PLn}{P_{\rm Lnl}}
+\newcommand{\iR}{R^{-1}}
+\newcommand{\tilq}{\tilde{q}}
+\newcommand{\Rn}[1]{R^{#1}}
+\newcommand{\bLn}[1]{{\bf L}^{#1}}
+\newcommand{\Li}[1]{L^{#1}_i}
+\newcommand{\Lj}[1]{L^{#1}_j}
+\newcommand{\del}{\delta}
+\newcommand{\Prec}{P_{\rm rec}}
+\newcommand{\ffid}{f_{\rm fid}}
+%\newcommand{\hMpc}{h^{-1}{\rm Mpc}}
+%\newcommand{\itrihMpc}{h^{3}{\rm\;Mpc^{-3}}}
+%\newcommand{\trihMpc}{h^{-3}{\rm\;Mpc^{3}}}
+%\newcommand{\Sigxy}{\Sigma_{\rm xy}}
+%\newcommand{\Sigz}{\Sigma_{\rm z}}
+\newcommand{\Sigdd}{\Sigma_{\rm dd}}
+\newcommand{\Sigsd}{\Sigma_{\rm sd}}
+\newcommand{\Sigss}{\Sigma_{\rm ss}}
+\newcommand{\Sxy}{S_{\rm xy}}
+\newcommand{\lamo}{\lambda_d}
+\newcommand{\lamt}{\lambda_s}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\fe}{f_e}
+\newcommand{\betae}{\beta_e}
+%\newcommand{\llan}{\left\langle}
+%\newcommand{\rran}{\right\rangle}
+\newcommand{\nnm}{\nonumber}
+
+\newcommand{\indlo}{\int\frac{\lambda_1}{2\pi}}
+\newcommand{\indlt}{\int\frac{\lambda_2}{2\pi}}
+\newcommand{\tF}{\tilde{F}}
+\newcommand{\Pobs}{P_{\rm obs}}
+\newcommand{\Pbias}{P_{\rm bias}}
+
+\newcommand{\PLobs}{P_{\rm L,obs}}
+\newcommand{\be}{b_e}
+\newcommand{\dko}{\tilde{\delta}_{\rm obs}(\bk)}
+\newcommand{\dpo}{\tilde{\delta}_{\rm obs}(\bp)}
+\newcommand{\dkpo}{\tilde{\delta}_{\rm obs}(\bk')}
+\newcommand{\pshot}{p_{\rm shot}}
+%\newcommand{\Pshot}{P_{\rm shot}}
+\newcommand{\dshot}{\tilde{\delta}_{\rm shot}}
+\newcommand{\Ddd}{D^2_{\rm dd}}
+\newcommand{\Bdd}{A_{\rm dd}}
+\newcommand{\Dss}{D^2_{\rm ss}}
+\newcommand{\Bss}{A_{\rm ss}}
+\newcommand{\Bsd}{A_{\rm sd}}
+%\newcommand{\nbar}{\bar{n}}
+
+\newcommand{\Bnn}[6]{B^{#1 #2}_{#3 #4,#5 #6} }
+
+%\newcommand{\do}{\delta_1}
+\newcommand{\dt}{\delta_2}
+\newcommand{\bso}{\bs_1}
+\newcommand{\bst}{\bs_2}
+\newcommand{\bPo}{\bPsi_1}
+\newcommand{\bPt}{\bPsi_2}
+\newcommand{\td}{\tilde{\delta}}
+
+\newcommand{\divv}{\bigtriangledown\cdot}
+
+\newcommand{\Cg}{C_G}
+\newcommand{\Cmg}{C_{\rm MG}}
+
+
+\newcommand{\doo}{\delta_1}
+\newcommand{\Sigddxy}{\Sigma_{\rm dd,xy}}
+\newcommand{\Sigddz}{\Sigma_{\rm dd,z}}
+
+\newcommand{\Sigsdxy}{\Sigma_{\rm sd,xy}}
+\newcommand{\Sigsdz}{\Sigma_{\rm sd,z}}
+
+\newcommand{\Sigssxy}{\Sigma_{\rm ss,xy}}
+\newcommand{\Sigssz}{\Sigma_{\rm ss,z}}
+\newcommand{\dP}{\delta P(k, \mu)}
+\newcommand{\Pwig}{P_{\rm wig}}
+\newcommand{\Pnow}{P_{\rm now}}
+\newcommand{\scr}{}
+
+%%% Z.V. commands
+\renewcommand{\vec}{\textbf}
+\newcommand*{\pp}  {\parallel}
+\newcommand*{\vp}  {v_{\pp}}
+\newcommand*{\vpl}  {v_{\pp l}}
+\newcommand*{\vps}  {v_{\pp s}}
+\newcommand*{\df}  {\delta}
+\newcommand*{\tf}  {\theta}
+\newcommand*{\non}  {\nonumber}
+\newcommand*{\lb}  {\left(}
+\newcommand*{\rb}  {\right)}
+\newcommand*{\ls}  {\left[}
+\newcommand*{\rs}  {\right]}
+\newcommand*{\eps}  {\epsilon}
+\newcommand{\eq}[1]{\begin{align}#1\end{align}}
+\newcommand{\eeq}[1]{\begin{equation}#1\end{equation}}
+%%%

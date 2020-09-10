@@ -1,0 +1,28 @@
+Author: Bhishan Poudel
+Date  : Apr 25, 2018
+
+Topic : Prospectus defense questions
+====================================
+* strong and weak lensing
+* luminosity distance
+* doppler effect
+* what is shear (shear e1 and e2)
+* what is reduced shear
+* does lensing depend on mass of lens (yes, alpha depends on mass)
+* hubble equation
+* sed plot
+* how to measure distance
+* why 90 degree rotated ==> to minimize the bias due to intrinsic alignment of the galaxies
+* psf convolution makes more rounder
+* λCDM model
+
+
+other paper works
+physics why we do this
+erat and grat plot
+erat, plot bias above 1.0
+
+
+Paper
+=====
+abstract

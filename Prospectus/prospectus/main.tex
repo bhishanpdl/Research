@@ -1,0 +1,75 @@
+%!TEX
+% Author: Bhishan Poudel
+\documentclass[12pt,A4]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{verbatim}
+\usepackage{xspace} % For spacing
+\usepackage{natbib} % For bib files
+\usepackage{amsmath} % boldsymbol{} needs this.
+\usepackage{mathrsfs} % For referencing math environment
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} % For colors
+\usepackage{graphicx,subfigure} % For figures
+\graphicspath{ {figures/}{../figures/} } % Put figures inside this directory and use pdf
+\usepackage[parfill]{parskip} % to avoid indentation in paragraphs
+\usepackage{enumitem} % for listing
+\usepackage[ampersand]{easylist}
+\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,
+Style2*=$\bullet$ ,Style3*=$\circ$ ,Style4*=\tiny$\blacksquare$ )    % for easylist
+\usepackage{hyperref} % for hyper-link
+
+% Math newcommands
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+\newcommand{\bvi}{\hat{\mathbf{i}}} %basis vector i
+\newcommand{\bvj}{\hat{\mathbf{j}}} %basis vector j
+\newcommand{\bvk}{\hat{\mathbf{k}}} %basis vector k
+\newcommand{\bvr}{\hat{\mathbf{r}}} %basis vector r
+\newcommand{\bvt}{\hat{\mathbf{\theta}}}%basis vector theta
+\newcommand{\bvx}{\hat{\mathbf{x}}} %basis vector x
+\newcommand{\bvy}{\hat{\mathbf{y}}}%basis vector y
+\renewcommand{\v}[1]{\mathbf #1}%% $\v{a}$ gives bold a ).
+
+%% My customized definitions
+\usepackage{mydefs}
+\newcommand{\vsn}[1]{(\textcolor{brown}{BP: #1})}
+\newcommand{\dc}[1]{(\textcolor{magenta}{DC: #1})}
+
+%%%%%%%%%%%%%%%
+\begin{document}
+
+% %%%%%%% cover-page
+\include{sections/a1_cover_page}
+\include{sections/a2_acronyms}
+
+%%%%%%%%%%% TOC
+\clearpage
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+
+
+% Rest of the chapters
+\include{sections/chap1_introduction}
+\include{sections/chap2_galaxy_fitting}
+\include{sections/chap3_psf_creation}
+\include{sections/chap4_galaxy_simulation}
+\include{sections/chap5_shear_analysis}
+\include{sections/z_timeline}
+
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#               Bibliography and End Document
+%#==============================================================================
+%#******************************************************************************
+%
+%
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{bib/prospectus}
+\end{document}

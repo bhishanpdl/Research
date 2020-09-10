@@ -1,0 +1,28 @@
+\section{Singular Isothermal Sphere (SIS) Model}
+
+% lensing_ipy1/Gravtational lensing
+Singular Isothermal Sphere
+
+$\rho = \rho_0r^{-2}$
+
+Surface density:
+
+$\Sigma(\xi) =\displaystyle\int^\infty_{-\infty} \mathrm{d}r_3 \rho\sqrt{\xi^2+r_3^2}$
+
+$=\rho_0 \displaystyle\int^\infty_{-\infty} \dfrac{\mathrm{d}r_3}{(\xi^2+r_3^2)}$
+
+$=\dfrac{\pi\rho_0}{\xi}$
+
+$\rightarrow \kappa(\theta) = \dfrac{\Sigma(D_L\theta)}{\Sigma_{cr}}=\dfrac{\pi\rho_0}{\Sigma_{cr}\xi}=\dfrac{\pi\rho_0}{\Sigma_{cr}D_L \theta}$
+
+Now using:
+
+$\alpha(\theta) =  \dfrac{2}{|\vec\theta|}\displaystyle\int^\theta_{\theta'=0} \kappa(\theta')\theta' \mathrm{d}\theta'$
+
+$\rightarrow \alpha(\theta) = \dfrac{2}{|\vec\theta|}\displaystyle\int^\theta_{\theta'=0}  \dfrac{\pi\rho_0}{\Sigma_{cr}D_L \theta'}\theta' \mathrm{d}\theta'$
+
+$=\dfrac{2\pi\rho_0}{\Sigma_{cr}D_L \theta} \left[\theta'\right]^\theta_{\theta'=0}$
+
+$=\dfrac{2\pi\rho_0}{\Sigma_{cr}D_L}$
+
+i.e. a constant bend angle

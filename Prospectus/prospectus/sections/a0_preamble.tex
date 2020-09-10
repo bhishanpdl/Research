@@ -1,0 +1,25 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xspace} % For spacing
+\usepackage{natbib} % For bib files
+\usepackage{amsmath} % boldsymbol{} needs this.
+\usepackage{mathrsfs} % For refrencing math environment
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} % For colors
+\usepackage{etoolbox} % To compile in Atom
+\usepackage{graphicx} % For figures
+\graphicspath{ {figures/} } % Put figures inside this directory and use pdf
+\usepackage[parfill]{parskip} % to avoid indentation in paragraphs
+\usepackage{enumitem} % for listing
+\usepackage[ampersand]{easylist}
+\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,
+Style2*=$\bullet$ ,Style3*=$\circ$ ,Style4*=\tiny$\blacksquare$ )    % for easylist
+\usepackage{hyperref} % for hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    % citecolor=gray,
+    citecolor=DarkRed,
+    bookmarks=true
+    }

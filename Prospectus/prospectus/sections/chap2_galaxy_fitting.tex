@@ -1,0 +1,123 @@
+% Author: Bhishan Poudel
+% Dates I worked:
+%  Nov 2, 2017
+%
+%
+%#*******************************************************
+%#=======================================================
+%# Chapter 2: Galaxy Fitting
+%#=======================================================
+%#*******************************************************
+%
+%
+\section{Galaxy Fitting}\label{sec:chap2}
+In this section, we want to fit the bulge and disk component fitting to the base 
+galaxy images provided from HST survey. We use the software called 
+\textit{Galfit} \footnote{https://users.obs.carnegiescience.edu/peng/work/galfit/galfit.html}
+to get the reasonable components of the base galaxy. Galfit is an image analysis
+algorithm that can model profiles of any given astronomical objects in the given
+fits image of the data sample. For example, if an fits image contains a galaxy,
+we can use galfit to fit the bulge and disk components to that galaxy.
+
+Here, for the bulge part of the galaxy, we use the de Vaucouleurs profile in 
+Galfit.
+The de Vaucouleurs profile describes how the surface brightness of a giant
+elliptical galaxy changes as a  function of the radius R from the center of the
+galaxy.
+
+Let $R_e$ be the radius of an isophote containing the half of the total 
+luminosity for a galaxy, then, for a de Voucouleurs profile, the surface 
+brightness enclosed by the radius $R$ in that galaxy is given by:
+
+\begin{eqnarray}\label{[eq:devauc]}
+    I(R) = I_e e^{-7.669 [ (R/R_e)^{1/4} -1]  }
+\end{eqnarray}
+
+Galfit has this formula as a built-in feature to get the bulge component of the
+galaxy.
+
+Similarly, to fit the disk profile to a galaxy, we use the profile called 
+\textit{exponential disk profile} in Galfit. This exponential disk profile 
+is a special case of Sersic profile. In the Sersic
+profile, the total surface brightness enclosed by the radius R around the center
+of a galaxy is given by
+
+\begin{eqnarray}\label{[eq:sersic]}
+    ln \ I(R) = ln \ I_0 - k R^{1/n}
+\end{eqnarray}
+
+where, $I_0$ is the central surface brightness at $R = 0$ and the parameter n is 
+called \textit{Sersic index} which determines the curviness of the Sersic profile.
+
+For the most of the spiral galaxies and dwarf elliptical galaxies, the Sersic index
+is close to 1. This case when the Sersic index n is equal to 1 is called
+exponential disk profile.
+In exponential disk profile, the surface brightness inside the radius R is given
+by
+
+\begin{eqnarray}\label{[eq:expdisk]}
+    ln \ I(R) = ln \ I_0 - k R
+\end{eqnarray}
+
+In this project we have 201 base galaxies obtained from the HST survey. As we 
+know that some of the galaxies have both bulge and disk components and some
+do not have it. For the case, when the base galaxy has bulge-disk components,
+Galfit gives nice bulge and disk components, however, when the base galaxy itself
+does not have reasonable bulge-disk component, Galfit can not give bulge and disk
+components of that galaxy. In that case either Galfit fails to give two 
+components or, gives bad parameter. We can see the whether the fitted parameters
+are good or bad in the log file created from the Galfit. If a parameter is 
+enclosed by \* then, we can not trust the fitting, and we treat like the given
+galaxy does not have reasonable bulge-disk components.
+
+Let's say we get two successful bulge and disk components of
+a base galaxy, then we choose devauc profile as the bulge and exponential profile
+as the disk image. On the other hand, if either the Galfit fails to produce
+two component fittings or gives non-reliable fitting parameters, then we make some 
+assumptions how to choose bugle and disk components. 
+If the single component fitting of \textit{devauc profile} gives the better fit 
+parameters than single component fitting of \textit{expdisk profile} ,
+we choose the base galaxy as the bulge component and we
+choose an empty image as the disk component. 
+Similarly, if the single component \textit{expdisk profile} gives better fitting than 
+single component \textit{devauc} fitting, we choose the base galaxy as the disk component 
+and we choose an empty image as the bulge component. We may notice that,
+while doing the galaxy fitting to our 201 base galaxies, we found that most the galaxies
+gave better fit for the \textit{devauc profile} than the \textit{expdisk profile}.
+An example of input parameter file for \textit{Galfit} is shown next page.
+\newpage
+
+\verbatiminput{sections/expdisk_devauc.sh}
+
+
+Another point to note is that, to use the Galfit program, we need to use a PSF image
+to convolve the original galaxy with the given PSF. The PSF image is different for 
+different filter images of a given galaxy. That is, for F814W filter of a base
+galaxy $galaxy\_f814w0.fits$ we use the psf $psf\_f814w.fits$ and for the galaxy
+$galaxy\_f660w0.fits$ we use the psf $psf\_f606w.fits$. For all the F814W filter
+images we use the same $psf\_f814w.fits$ and for all the F606W filter images we use
+the same $psf\_f066w.fits$.
+
+Here, in our project we use the F814W filter images taken from the HST ACS Wide Field Channel Camera.
+To create the relevant PSF, we use an on-line tool called  \textit{STScI TinyTim Web Application} 
+\footnote{http://www.stsci.edu/hst/observatory/focus/TinyTim}.
+
+The TinyTim web application needs some parameters to create a psf.
+For this project we chose the following parameters:
+
+\begin{table}[!h]
+\centering
+\caption{Tiny Tim Parameters}
+\label{tiny-tim}
+\begin{tabular}{ll}
+Camera         & ACS - Wide Field Channel \\
+Chip           & 1                        \\
+Pixel Position & 301 301                  \\
+Filter         & F814w                    \\
+Spectrumtype   & Blackbody                \\
+Spectrumvalue  & 6000                     \\
+PSF diameter   & 5.0 arcsec               \\
+Focus          & 0.0                     
+\end{tabular}
+\end{table}
+

@@ -1,0 +1,32 @@
+%!TEX
+% Author: Bhishan Poudel
+% Date  : Apr 19, 2018
+% Topic :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{beamer}
+\usepackage{natbib}
+\usepackage{amsmath,amssymb}
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {figures/}{../figures/} }
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=orange,filecolor=magenta,urlcolor=cyan,citecolor=DarkRed}
+
+\begin{document}
+
+\begin{eqnarray}
+Define:\\
+bfr0 &=& \frac{\int_{\lambda_{0}}^{\lambda_{1}} f_{bz} (\lambda) d\lambda}{\int_{\lambda_{0}}^{\lambda_{20}} f_{bz} (\lambda) d\lambda}\\
+avg\_rsbd &=& \frac{\Sigma(F_{sb}/ F_{sd})}{n_g}\\
+avg\_rsbd\_d &=& \frac{1}{1 + avg\_rsbd}\\
+avg\_rsbd\_b &=& \frac{avg\_rsbd}{1 + avg\_rsbd}\\
+\end{eqnarray}
+Then,
+\begin{eqnarray}
+psfb = \frac{p0*bfr0 + p1*bfr1 + ... + p20*bfr20}{bfr0 + bfr1 + ... + bfr20}\\
+psfd = \frac{p0*dfr0 + p1*dfr1 + ... + p20*dfr20}{dfr0 + dfr1 + ... + dfr20}\\
+psfm = psfb * avg\_rsbd\_b + psfd * avg\_rsbd\_d
+\end{eqnarray}
+
+\end{document} 
